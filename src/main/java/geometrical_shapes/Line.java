@@ -13,9 +13,9 @@ public class Line implements Drawable {
     public Line(Point start, Point end) {
         this.start = start;
         this.end = end;
-        this.color = Color.red;
+        this.color = Color.white;
     }
-    
+
     public Line(Point start, Point end, Color color) {
         this.start = start;
         this.end = end;

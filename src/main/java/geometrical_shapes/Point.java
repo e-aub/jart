@@ -8,7 +8,7 @@ import jart.Drawable;
 public class Point implements Drawable {
     private int x;
     private int y;
-    final private Color  color;
+    private Color  color;
 
     public Point(int x, int y) {
         this.x = x;
@@ -42,6 +42,10 @@ public class Point implements Drawable {
             int x = rand.nextInt(width);
             int y = rand.nextInt(height);
             return new Point(x, y);
+    }
+
+    public void setColor(Color color){
+        this.color = color;
     }
 
     @Override
