@@ -1,8 +1,5 @@
 package jart;
-
-import jart.Displayable;
-
-import java.awt.*;
+import java.awt.Color;
 
 public interface Drawable {
     void draw(Displayable displayable);

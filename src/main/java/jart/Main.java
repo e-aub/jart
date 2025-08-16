@@ -19,6 +19,12 @@ public class Main {
 
         Rectangle rectangle = new Rectangle(new Point(50, 50), new Point(300, 200));
         rectangle.draw(image);
+
+        for(int i = 0; i <=100;i++){
+            Line.random(image.getHeight(), image.getWidth()).draw(image);
+            Point.random(image.getHeight(), image.getWidth()).draw(image);
+
+        }
 //        Triangle triangle = new Triangle(new Point(100, 100), new Point(900, 900), new Point(100, 900));
 //        triangle.draw(image);
 //

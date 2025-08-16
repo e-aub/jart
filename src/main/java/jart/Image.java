@@ -1,9 +1,10 @@
 package jart;
 
-import javax.imageio.ImageIO;
-import java.awt.*;
+import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.File;
+
+import javax.imageio.ImageIO;
 
 public class Image implements Displayable {
     private final BufferedImage image;
@@ -12,9 +13,21 @@ public class Image implements Displayable {
         this.image = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
     }
 
+    @Override
     public void display(int x, int y, Color color){
             image.setRGB(x,y,color.getRGB());
     }
+
+
+    public int getHeight(){
+        return image.getHeight();
+    }
+
+    public int getWidth(){
+        return image.getWidth();
+    }
+
+    @Override
     public void save(String name){
         File file = new File(name);
         try {

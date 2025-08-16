@@ -29,6 +29,7 @@ public class Rectangle implements Drawable{
         new Line(bottomLeft, bottomRight).draw(displayable); 
     }
 
+    
     @Override
     public Color getColor(){
         return this.color;

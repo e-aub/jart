@@ -1,5 +1,6 @@
 clean:
 	mvn clean
+	rm -f image.png
 
 build:
 	mvn install

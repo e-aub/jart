@@ -69,6 +69,11 @@ public class Line implements Drawable {
         }
     }
 
+    public static Line random(Integer width, Integer height) {
+        return new Line(Point.random(width, height), Point.random(width, height));
+    }
+    
+
     @Override
     public Color getColor() {
         return color;
