@@ -7,14 +7,13 @@ import jart.Drawable;
 
 public class Line implements Drawable {
 
-    private Point start;
-    private Point end;
+    final private Point start, end;
     final private Color color;
 
     public Line(Point start, Point end) {
         this.start = start;
         this.end = end;
-        this.color = Color.red;
+        this.color = Color.black;
     }
 
     @Override

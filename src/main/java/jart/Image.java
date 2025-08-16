@@ -3,6 +3,7 @@ package jart;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
@@ -38,8 +39,9 @@ public class Image implements Displayable {
         File file = new File(name);
         try {
             ImageIO.write(image, "png", file);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (IOException e) {
+            System.err.println(e);
+            System.exit(1);
         }
     }
 }

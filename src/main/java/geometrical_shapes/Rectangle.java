@@ -6,7 +6,7 @@ import jart.Displayable;
 import jart.Drawable;
 
 public class Rectangle implements Drawable{
-    private Point a, b;
+    final private Point a, b;
     final private Color color;
 
     public Rectangle(Point a, Point b) {
