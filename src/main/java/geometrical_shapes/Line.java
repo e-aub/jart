@@ -1,12 +1,12 @@
 package geometrical_shapes;
 
-import geometrical_shapes.Point;
+import java.awt.Color;
+
 import jart.Displayable;
 import jart.Drawable;
 
-import java.awt.*;
-
 public class Line implements Drawable {
+
     private Point start;
     private Point end;
     final private Color color;
@@ -19,25 +19,52 @@ public class Line implements Drawable {
 
     @Override
     public void draw(Displayable displayable) {
-//        displayable.display();
-        Integer x0 = start.getX();
-        Integer y0 = start.getY();
-        Integer x1 = end.getX();
-        Integer y1 = end.getY();
-        Integer dX =  x1 - x0;
-        Integer dY = y1 - y0;
-        Integer y = y0;
-        Integer p = 2*dY - dX;
+        int x0 = start.getX();
+        int y0 = start.getY();
+        int x1 = end.getX();
+        int y1 = end.getY();
 
+        boolean steep = Math.abs(y1 - y0) > Math.abs(x1 - x0);
 
-        for (int i = 0; i <= dX + 1; i++) {
-            displayable.display(x0 + i, y, color);
+        if (steep) {
+            // Swap X and Y
+            int tmp;
+            tmp = x0;
+            x0 = y0;
+            y0 = tmp;
+            tmp = x1;
+            x1 = y1;
+            y1 = tmp;
+        }
 
-            if (p >= 0){
-                y+=1;
-                p = p - (2 * dX);
-            }else{
-                p = p + 2 * dY;
+        if (x0 > x1) {
+            // Swap start and end points
+            int tmp;
+            tmp = x0;
+            x0 = x1;
+            x1 = tmp;
+            tmp = y0;
+            y0 = y1;
+            y1 = tmp;
+        }
+
+        int dX = x1 - x0;
+        int dY = Math.abs(y1 - y0);
+        int error = dX / 2;
+        int yStep = (y0 < y1) ? 1 : -1;
+        int y = y0;
+
+        for (int x = x0; x <= x1; x++) {
+            if (steep) {
+                displayable.display(y, x, color); // swapped back
+            } else {
+                displayable.display(x, y, color);
+            }
+
+            error -= dY;
+            if (error < 0) {
+                y += yStep;
+                error += dX;
             }
         }
     }

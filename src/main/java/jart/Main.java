@@ -1,5 +1,6 @@
 package jart;
-import geometrical_shapes.*;
+import geometrical_shapes.Line;
+import geometrical_shapes.Point;
 //import java.awt.*;
 
 
@@ -10,7 +11,7 @@ public class Main {
         Point point = new Point(50, 50);
         point.draw(image);
 
-        Line line = new Line(new Point(50, 100), new Point(100, 50));
+        Line line = new Line(new Point(1, 1), new Point(999, 999));
         line.draw(image);
 
         //Rectangle rectangle = new Rectangle(new Point(50, 50), new Point(300, 200));
