@@ -13,7 +13,7 @@ public class Point implements Drawable {
     public Point(int x, int y) {
         this.x = x;
         this.y = y;
-        this.color = Color.white;
+        this.color = Color.red;
     }
 
     @Override

@@ -1,7 +1,8 @@
 package jart;
-// import geometrical_shapes.Line;
 import geometrical_shapes.Point;
+import geometrical_shapes.Rectangle;
 import geometrical_shapes.Triangle;
+
 
 //import java.awt.*;
 
@@ -16,8 +17,8 @@ public class Main {
         // Line line = new Line(new Point(1, 1), new Point(999, 999));
         // line.draw(image);
 
-        // Rectangle rectangle = new Rectangle(new Point(50, 50), new Point(300, 200));
-        // rectangle.draw(image);
+        Rectangle rectangle = new Rectangle(new Point(50, 50), new Point(300, 200));
+        rectangle.draw(image);
 
         // for(int i = 0; i <=100;i++){
         //     Line.random(image.getHeight(), image.getWidth()).draw(image);

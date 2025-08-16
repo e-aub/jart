@@ -13,7 +13,13 @@ public class Line implements Drawable {
     public Line(Point start, Point end) {
         this.start = start;
         this.end = end;
-        this.color = Color.black;
+        this.color = Color.red;
+    }
+    
+    public Line(Point start, Point end, Color color) {
+        this.start = start;
+        this.end = end;
+        this.color = color;
     }
 
     @Override

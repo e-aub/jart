@@ -14,14 +14,21 @@ public class Triangle implements Drawable{
         this.a = a;
         this.b = b;
         this.c = c;
-        this.color = Color.blue;
+        this.color = Color.white;
+    }
+
+    public Triangle(Point a, Point b, Point c, Color color) {
+        this.a = a;
+        this.b = b;
+        this.c = c;
+        this.color = color;
     }
 
     @Override
     public void draw(Displayable displayable){
-        new Line(a, b).draw(displayable);
-        new Line(b, c).draw(displayable);
-        new Line(c, a).draw(displayable);
+        new Line(a, b, color).draw(displayable);
+        new Line(b, c, color).draw(displayable);
+        new Line(c, a, color).draw(displayable);
     }
 
     @Override

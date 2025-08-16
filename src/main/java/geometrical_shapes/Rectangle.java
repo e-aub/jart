@@ -12,7 +12,13 @@ public class Rectangle implements Drawable{
     public Rectangle(Point a, Point b) {
         this.a = a;
         this.b = b;
-        this.color = Color.cyan;
+        this.color = Color.white;
+    }
+
+    public Rectangle(Point a, Point b, Color color) {
+        this.a = a;
+        this.b = b;
+        this.color = color;
     }
     
     
@@ -23,10 +29,10 @@ public class Rectangle implements Drawable{
         Point bottomLeft = new Point(Math.min(a.getX(), b.getX()), Math.max(a.getY(), b.getY()));
         Point bottomRight = new Point(Math.max(a.getX(), b.getX()), Math.max(a.getY(), b.getY()));
         
-        new Line(topLeft, topRight).draw(displayable);     
-        new Line(topLeft, bottomLeft).draw(displayable);   
-        new Line(topRight, bottomRight).draw(displayable); 
-        new Line(bottomLeft, bottomRight).draw(displayable); 
+        new Line(topLeft, topRight, this.color).draw(displayable);     
+        new Line(topLeft, bottomLeft, this.color).draw(displayable);   
+        new Line(topRight, bottomRight, this.color).draw(displayable); 
+        new Line(bottomLeft, bottomRight, this.color).draw(displayable); 
     }
 
     
