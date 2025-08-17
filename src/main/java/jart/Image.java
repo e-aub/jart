@@ -22,6 +22,7 @@ public class Image implements Displayable {
 
     @Override
     public void display(int x, int y, Color color) {
+        if (x < 0 || x>=getWidth() ||  y< 0 || y >= getHeight() ) return; 
         image.setRGB(x, y, color.getRGB());
     }
 

@@ -26,37 +26,20 @@ public class Circle implements Drawable {
     
     @Override
     public void draw(Displayable displayable) {
-        // Draw circle using Bresenham's circle algorithm
         int x0 = center.getX();
         int y0 = center.getY();
         int r = radius;
         
-        int x = r;
-        int y = 0;
-        int err = 0;
-        
-        while (x >= y) {
-            System.out.println("Drawing circle at: (" + x0 + ", " + y0 + ") with radius: " + r);
-            displayable.display(x0 + x, y0 + y, color);
-            displayable.display(x0 + y, y0 + x, color);
-            displayable.display(x0 - y, y0 + x, color);
-            displayable.display(x0 - x, y0 + y, color);
-            displayable.display(x0 - x, y0 - y, color);
-            displayable.display(x0 - y, y0 - x, color);
-            displayable.display(x0 + y, y0 - x, color);
-            displayable.display(x0 + x, y0 - y, color);
-            
-            if (err <= 0) {
-                y += 1;
-                err += 2 * y + 1;
-            }
-            
-            if (err > 0) {
-                x -= 1;
-                err -= 2 * x + 1;
-            }
+        double stpes = 0.0;
+        while (stpes < 360.0) {
+            double angle = (stpes * Math.PI / 180.0);
+            int x = (int)(x0 + r * Math.cos(angle));
+            int y = (int)(y0 + r * Math.sin(angle));
+            displayable.display(x, y, color);
+            stpes += 0.01;
         }
     }
+
     
     @Override
     public Color getColor() {
@@ -69,7 +52,7 @@ public class Circle implements Drawable {
             Math.min(center.getX(), maxX - center.getX()),
             Math.min(center.getY(), maxY - center.getY())
         );
-        int radius = rand.nextInt(Math.max(1, Math.min(maxRadius, 100))) + 10;
+        int radius = (int) (Math.random() * maxX);
         return new Circle(center, radius);
     }
 }
