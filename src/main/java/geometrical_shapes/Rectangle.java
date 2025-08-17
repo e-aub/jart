@@ -24,10 +24,10 @@ public class Rectangle implements Drawable{
     
     @Override
     public void draw(Displayable displayable){
-        Point topLeft = new Point(Math.min(a.getX(), b.getX()), Math.min(a.getY(), b.getY()));
-        Point topRight = new Point(Math.max(a.getX(), b.getX()), Math.min(a.getY(), b.getY()));
-        Point bottomLeft = new Point(Math.min(a.getX(), b.getX()), Math.max(a.getY(), b.getY()));
-        Point bottomRight = new Point(Math.max(a.getX(), b.getX()), Math.max(a.getY(), b.getY()));
+        Point topLeft = new Point(Math.min(a.getY(), b.getY()), Math.min(a.getX(), b.getX()));
+        Point topRight = new Point(Math.max(a.getY(), b.getY()), Math.min(a.getX(), b.getX()));
+        Point bottomLeft = new Point(Math.min(a.getY(), b.getY()), Math.max(a.getX(), b.getX()));
+        Point bottomRight = new Point(Math.max(a.getY(), b.getY()), Math.max(a.getX(), b.getX()));
         
         new Line(topLeft, topRight, this.color).draw(displayable);     
         new Line(topLeft, bottomLeft, this.color).draw(displayable);   

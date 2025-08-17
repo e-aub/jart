@@ -29,55 +29,27 @@ public class Line implements Drawable {
         int x1 = end.getX();
         int y1 = end.getY();
 
-        boolean steep = Math.abs(y1 - y0) > Math.abs(x1 - x0);
+        int dx = x1 - x0;
+        int dy = y1 - y0;
 
-        if (steep) {
-            // Swap X and Y
-            int tmp;
-            tmp = x0;
-            x0 = y0;
-            y0 = tmp;
-            tmp = x1;
-            x1 = y1;
-            y1 = tmp;
-        }
+        int steps = Math.max(Math.abs(dx), Math.abs(dy));
 
-        if (x0 > x1) {
-            // Swap start and end points
-            int tmp;
-            tmp = x0;
-            x0 = x1;
-            x1 = tmp;
-            tmp = y0;
-            y0 = y1;
-            y1 = tmp;
-        }
+        float xInc = dx / (float) steps;
+        float yInc = dy / (float) steps;
 
-        int dX = x1 - x0;
-        int dY = Math.abs(y1 - y0);
-        int error = dX / 2;
-        int yStep = (y0 < y1) ? 1 : -1;
-        int y = y0;
+        float x = x0;
+        float y = y0;
 
-        for (int x = x0; x <= x1; x++) {
-            if (steep) {
-                displayable.display(y, x, color); // swapped back
-            } else {
-                displayable.display(x, y, color);
-            }
-
-            error -= dY;
-            if (error < 0) {
-                y += yStep;
-                error += dX;
-            }
+        for (int i = 0; i <= steps; i++) {
+            displayable.display(Math.round(x), Math.round(y), color);
+            x += xInc;
+            y += yInc;
         }
     }
 
     public static Line random(Integer width, Integer height) {
         return new Line(Point.random(width, height), Point.random(width, height));
     }
-    
 
     @Override
     public Color getColor() {

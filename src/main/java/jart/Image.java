@@ -1,6 +1,7 @@
 package jart;
 
 import java.awt.Color;
+import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -10,15 +11,13 @@ import javax.imageio.ImageIO;
 public class Image implements Displayable {
 
     private final BufferedImage image;
+    private Graphics2D graphics;
 
     public Image(Integer height, Integer width) {
         this.image = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
-
-        for (int y = 0; y < height; y++) {
-            for (int x = 0; x < width; x++) {
-                image.setRGB(x, y, Color.BLACK.getRGB()); 
-            }
-        }
+        this.graphics = image.createGraphics();
+        graphics.setColor(Color.BLACK);
+        graphics.fillRect(0, 0, width, height);
     }
 
     @Override
